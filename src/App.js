@@ -2,13 +2,33 @@ import React, { useState } from 'react';
 
 function App() {
   // false is the initial state
-  const [ activated, setActivated ] = useState(false);
-  const buttonText = activated? 'Active': 'Inactive';
-  const onClick = () => setActivated(!activated);
+  const [ state, setState ] = useState({
+    city: '',
+    country: ''
+  });
+ 
+  const handleCityOnChange = (event)=>{setState({...state, city: event.target.value})};
+  const handleCountryOnChange = (event)=>{setState({...state, country: event.target.value})};
   return (
-    <button onClick={onClick}>
-      { buttonText }
-    </button>
+    <form>
+      <div>
+        <input 
+          type="text"
+          placeholder="City"
+          value={state.city}
+          onChange={handleCityOnChange}
+        />
+        <input 
+          type="country"
+          placeholder="Country"
+          value={state.country}
+          onChange={handleCountryOnChange}
+        />
+      </div>
+      <div>
+        You live in {`${state.city}, ${state.country}`}
+      </div>
+    </form>
   )
 }
 // class App extends Component {
