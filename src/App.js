@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 
 function App() {
-  // false is the initial state
-  const [ activated, setActivated ] = useState(false);
-  const buttonText = activated? 'Active': 'Inactive';
-  const onClick = () => setActivated(!activated);
+  const [ count, setCount ] = useState(0);
+  // [version-1]update the value with pass one value
+  // const handleClick = () => setCount(count+1);
+  // [version-1]update the value with callback function
+  const handleClick = () => setCount((prevCount)=>prevCount+1);
   return (
-    <button onClick={onClick}>
-      { buttonText }
-    </button>
+    <div>
+      <button onClick={handleClick}>
+        Increase    
+      </button>
+      <h1>{count}</h1>
+    </div>
   )
 }
 // class App extends Component {
