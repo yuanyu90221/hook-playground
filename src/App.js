@@ -2,31 +2,28 @@ import React, { useState } from 'react';
 
 function App() {
   // false is the initial state
-  const [ state, setState ] = useState({
-    city: '',
-    country: ''
-  });
- 
-  const handleCityOnChange = (event)=>{setState({...state, city: event.target.value})};
-  const handleCountryOnChange = (event)=>{setState({...state, country: event.target.value})};
+  const [city, setCity] = useState('');
+  const [country, setCountry] = useState('');
+  const handleCityOnChange = (event)=>{setCity(event.target.value)};
+  const handleCountryOnChange = (event)=>{setCountry(event.target.value)};
   return (
     <form>
       <div>
         <input 
           type="text"
           placeholder="City"
-          value={state.city}
+          value={city}
           onChange={handleCityOnChange}
         />
         <input 
           type="country"
           placeholder="Country"
-          value={state.country}
+          value={country}
           onChange={handleCountryOnChange}
         />
       </div>
       <div>
-        You live in {`${state.city}, ${state.country}`}
+        You live in {`${city}, ${country}`}
       </div>
     </form>
   )
