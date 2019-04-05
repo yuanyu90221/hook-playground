@@ -5,11 +5,19 @@ function App() {
   // [version-1]update the value with pass one value
   // const handleClick = () => setCount(count+1);
   // [version-1]update the value with callback function
-  const handleClick = () => setCount((prevCount)=>prevCount+1);
+  const handleIncrease = () => setCount((prevCount)=>prevCount+1);
+  const handleDecrease = () => setCount((prevCount)=>prevCount-1);
+  const handleReset = () => setCount(0);
   return (
     <div>
-      <button onClick={handleClick}>
+      <button onClick={handleIncrease}>
         Increase    
+      </button>
+      <button onClick={handleDecrease}>
+        Decrease    
+      </button>
+      <button onClick={handleReset}>
+        Reset
       </button>
       <h1>{count}</h1>
     </div>
