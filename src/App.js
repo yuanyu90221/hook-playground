@@ -4,12 +4,12 @@ function Counter() {
   const handleIncrease = ()=> setCount(count + 1);
   const handleDecrease = ()=> setCount(count - 1);
   useEffect(()=>{
-    console.log(`I'm inside the useEffect function. The current count is ${count}`);
+    console.log(`I'm inside the useEffect function.Will only run upon mounting, The current count is ${count}`);
     
     return () => {
-      console.log(`I'm removing anything that was setup above!, The last count was ${count}`);
+      console.log(`I'm removing anything that was setup above!, The last count was ${count}, But now , will only run when component is being umounted`);
     };
-  });
+  }, []);
   return (
     <div>
       <button onClick={handleIncrease}>Increase</button>
