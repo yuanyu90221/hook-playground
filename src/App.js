@@ -1,7 +1,19 @@
 import React, { useState , useEffect } from 'react';
 
 function App() {
-  const [userText, setUserText] = useState('');
+  const userText = useKeyPress('Hello here...');
+  return (
+    <div>
+      <h1>Feel free to type!Your text will show up below </h1>
+      <blockquote>
+        {userText}
+      </blockquote>
+    </div>
+  )
+}
+
+function useKeyPress(staringValue) {
+  const [userText, setUserText] = useState(staringValue);
   const handleUserKeyPress = (event)=>{
     const { key, keyCode } = event;
     // lowercase alphabet
@@ -16,14 +28,8 @@ function App() {
       window.removeEventListener('keydown', handleUserKeyPress);
     }
   });
-  return (
-    <div>
-      <h1>Feel free to type!Your text will show up below </h1>
-      <blockquote>
-        {userText}
-      </blockquote>
-    </div>
-  )
+
+  return userText;
 }
 
 export default App;
